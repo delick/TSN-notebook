@@ -68,3 +68,29 @@ To build the file lists for all 3 splits of the two benchmark dataset, use the f
 bash scripts/build_file_list.sh ucf101 /app/ucf101/UCFCUT/
 ```
 The generated list files will be put in `data/` with names like `ucf101_flow_val_split_2.txt`.
+
+### Start training
+Once all necessities ready, we can start training TSN. For this, use the script `scripts/train_tsn.sh`. For example, the following command runs training on UCF101 with rgb input:
+```bash
+bash scripts/train_tsn.sh ucf101 rgb
+```
+**Note: mpirun error**
+
+```
+logging to logs/ucf101_rgb_split1.log
+tee: logs/ucf101_rgb_split1.log: No such file or directory
+--------------------------------------------------------------------------
+mpirun has detected an attempt to run as root.
+Running at root is *strongly* discouraged as any mistake (e.g., in
+defining TMPDIR) or bug can result in catastrophic damage to the OS
+file system, leaving your system in an unusable state.
+
+You can override this protection by adding the --allow-run-as-root
+option to your cmd line. However, we reiterate our strong advice
+against doing so - please do so at your own risk.
+--------------------------------------------------------------------------
+```
+
+the training will run with default settings on 4 GPUs. Usually, it takes around 1 hours to train the rgb model and 4 hours for flow models, on 4 GTX Titan X GPUs.
+
+The learned model weights will be saved in `models/`. The aforementioned testing process can be used to evaluate them.
