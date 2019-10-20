@@ -91,6 +91,11 @@ against doing so - please do so at your own risk.
 --------------------------------------------------------------------------
 ```
 
+Useful links to solve this problem
+https://github.com/yjxiong/temporal-segment-networks/issues/222
+https://github.com/AlanZhang1995/LeinaoPAI/blob/master/images/temporal-segment-networks2/Dockerfile
+
+
 the training will run with default settings on 4 GPUs. Usually, it takes around 1 hours to train the rgb model and 4 hours for flow models, on 4 GTX Titan X GPUs.
 
 The learned model weights will be saved in `models/`. The aforementioned testing process can be used to evaluate them.
