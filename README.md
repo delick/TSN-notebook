@@ -95,6 +95,25 @@ Useful links to solve this problem
 https://github.com/yjxiong/temporal-segment-networks/issues/222
 https://github.com/AlanZhang1995/LeinaoPAI/blob/master/images/temporal-segment-networks2/Dockerfile
 
+The problem can be solved by adding `--allow-run-as-root` to `scripts/train_tsn.sh` file. However, when I tried to run `bash scripts/train_tsn.sh ucf101 rgb`, the docker says:
+
+```bash
+F1021 14:42:04.707031  6612 common.cpp:190] Check failed: error == cudaSuccess (35 vs. 0)  CUDA driver version is insufficient for CUDA runtime version
+*** Check failure stack trace: ***
+    @     0x7f813ae2f5cd  google::LogMessage::Fail()
+    @     0x7f813ae31433  google::LogMessage::SendToLog()
+    @     0x7f813ae2f15b  google::LogMessage::Flush()
+    @     0x7f813ae31e1e  google::LogMessageFatal::~LogMessageFatal()
+    @     0x7f813b1b72d2  caffe::Caffe::SetDevice()
+    @           0x40985f  train()
+    @           0x406fc0  main
+    @     0x7f8139d33830  __libc_start_main
+    @           0x4074f9  _start
+    @              (nil)  (unknown)
+--------------------------------------------------------------------------
+mpirun noticed that process rank 0 with PID 6612 on node 960c6b4db154 exited on signal 6 (Aborted).
+--------------------------------------------------------------------------
+```
 
 the training will run with default settings on 4 GPUs. Usually, it takes around 1 hours to train the rgb model and 4 hours for flow models, on 4 GTX Titan X GPUs.
 
