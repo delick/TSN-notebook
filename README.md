@@ -114,6 +114,8 @@ F1021 14:42:04.707031  6612 common.cpp:190] Check failed: error == cudaSuccess (
 mpirun noticed that process rank 0 with PID 6612 on node 960c6b4db154 exited on signal 6 (Aborted).
 --------------------------------------------------------------------------
 ```
+Possible solution:
+https://stackoverflow.com/questions/3253257/cuda-driver-version-is-insufficient-for-cuda-runtime-version
 
 the training will run with default settings on 4 GPUs. Usually, it takes around 1 hours to train the rgb model and 4 hours for flow models, on 4 GTX Titan X GPUs.
 
