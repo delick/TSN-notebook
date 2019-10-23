@@ -9,7 +9,7 @@ docker pull bitxiong/tsn
 ## Run bash commands inside docker images
 ### Run images with bash enabled.
 ```bash
-sudo docker run -it bitxiong/tsn /bin/bash
+sudo docker run --gpus 1 -it bitxiong/tsn /bin/bash
 ```
 
 ### Then run the building scripts to build the libraries.
